@@ -26,8 +26,8 @@ const zTetromino = [
 
 const tTetromino = [
   [1, width, width+1, width+2],
-  [1, width+1, width+2],
-  [width, width+1, width+2],
+  [1, width+1, width+2,width*2+1],
+  [width, width+1, width+2,width*2+1],
   [1, width, width+1, width*2+1]
 ]
 
@@ -82,10 +82,10 @@ timerId = setInterval(moveDown, 500)
 function control(e) {
   if(e.keyCode === 37) {
     moveLeft()
-  } else if(e.keyCode === 39) {
-    moveRight()
   } else if(e.keyCode === 38) {
     rotate()
+  } else if(e.keyCode === 39) {
+    moveRight()
   } else if(e.kayCode === 40) {
     moveDown()
   }
@@ -171,17 +171,16 @@ let displayIndex = 0
 
 // the Tetrominoes in default display
 const upNextTetrominoes = [
-  [1, displayWidth+1, displayWidth*2+1, 2], // l Tet
-  [0, displayWidth, displayWidth+1, displayWidth*2+1], // z Tet
-  [1, displayWidth, displayWidth+1, displayWidth+2], // t Tet
-  [0, 1, displayWidth, displayWidth+1],                   // o Tet
-  [1, displayWidth+1, displayWidth*2+1, displayWidth*3+1]        // i Tet
+  [1, displayWidth+1, displayWidth*2+1, 2],                 // l Tet
+  [0, displayWidth, displayWidth+1, displayWidth*2+1],      // z Tet
+  [1, displayWidth, displayWidth+1, displayWidth+2],        // t Tet
+  [0, 1, displayWidth, displayWidth+1],                     // o Tet
+  [1, displayWidth+1, displayWidth*2+1, displayWidth*3+1]   // i Tet
 ]
 
 // display the next shape
 function displayShape() {
-  // clear the space of anything before displaying next tetromino
-  
+  // remove any previous tetromino shape from grid
   displaySquares.forEach(square => {
     square.classList.remove('tetromino')
   })
