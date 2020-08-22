@@ -1,10 +1,11 @@
 //define things first
 const grid = document.querySelector('.grid')
 let squares = Array.from(document.querySelectorAll('.grid div'))
-const ScoreDisplay = document.querySelector('#score')
-const StartBtn = document.querySelector('#start-button')
+const scoreDisplay = document.querySelector('#score')
+const startBtn = document.querySelector('#start-button')
 const width = 10
 let nextRandom = 0
+let timerId
 
 
 //// Setting the arrays up for our game
@@ -72,10 +73,9 @@ function undraw () {
   })
 }
 
-
 //// (Interval) and Time
 // make the tetromino's fall every interval
-timerId = setInterval(moveDown, 500)
+// timerId = setInterval(moveDown, 1000)
 
 //// (keycodes)
 // Lets control the game with keycodees
@@ -114,10 +114,11 @@ function halt() {
     current.forEach(index => squares[currentPosition + index].classList.add('taken'))
     // another tetromino falling now
     random = nextRandom
-    random = Math.floor(Math.random() * theTetrominoes.length)
+    nextRandom = Math.floor(Math.random() * theTetrominoes.length)
     current = theTetrominoes[random][currentRotation]
     currentPosition = 4
     draw()
+    displayShape()
   }
 }
 
@@ -189,3 +190,17 @@ function displayShape() {
   })
 }
 
+// start and pause buttons
+// setInterval()  clearInterval()
+
+startBtn.addEventListener('click', () => {
+  if (timerId) {
+    clearInterval(timerId)
+    timerId = null
+  } else {
+    draw()
+    timerId = setInterval(moveDown, 400)
+    nextRandom = Math.floor(Math.random()*theTetrominoes.length)
+    displayShape()
+  }
+})
