@@ -30,8 +30,8 @@
 // reduce() method executes a reducer function(that you provide) on each element to the array.
 // returning a single output value.
 
-  const arr = [1,2,3,4,5,6,7];
+    //   const arr = [1,2,3,4,5,6,7];
 
-  const total = arr.reduce((acc, nextNum) => (acc + nextNum), 0);
+    //   const total = arr.reduce((acc, nextNum) => (acc + nextNum), 0);
 
-  console.log(total);
+    //   console.log(total);
