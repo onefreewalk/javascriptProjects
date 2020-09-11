@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>It's Hangman!!</title>
+</head>
+<body>
+  <h1>It's Hangman!</h1>
+  <p>Find the hidden word - Type a letter on the keyboard</p>
+  <div class="game-container">
+    <svg height="250" width="200" class="figure-container">
+      <!-- arch for the game -->
+      <line x1="60" y1="20"x2="140" y2="20"></line>
+      <line x1="140" y1="20" x2="140" y2="40"></line>
+      <line x1="60" y1="20" x2="60" y2="230"></line>
+      <line x1="20" y1="230" x2="300" y2="230"></line>
+      <!-- Character Head -->
+      <circle cx="140" cy="60" r="20" class="figure-part"/>
+      <!-- Character Body -->
+      <line x1="140" y1="80" x2="140" y2="150" class="figure-part"></line>
+      <!-- character left arm  -->
+      <line x1="140" y1="120" x2="120" y2="100" class="figure-part"></line>
+      <!-- character right arm  -->
+      <line x1="140" y1="120" x2="160" y2="100" class="figure-part"></line>
+      <!-- character left leg  -->
+      <line x1="140" y1="150" x2="120" y2="180" class="figure-part"></line>
+      <!-- character right leg  -->
+      <line x1="140" y1="150" x2="160" y2="180" class="figure-part"></line>
+    </svg>
+  </div>
+  
+  <div class="wrong-letters-container">
+    <div id="wrong-letters">
+
+      <p>Incorrect</p>
+      <span>e, r, t, y</span>
+
+    </div>
+    <div class="word" id="word">
+      <div class="letter">h</div>
+      <div class="letter">e</div>
+      <div class="letter">l</div>
+      <div class="letter">l</div>
+      <div class="letter">o</div>
+    </div>
+
+  </div> <!-- end of wrong letters -->
+
+  <!-- final message displays here-->
+  <div class="popup-container" id="popup-container">
+    <h2 id="final-message">You have Won!</h2>
+    <button id="play-button">Play Again</button>
+    </h2>
+
+  </div> <!-- end of pupup container -->
+
+  <!-- notifcation area-->
+  <div class="notification-container" id="notification-container"></div>
+    <p>You have already entered this letter</p>
+  
+  <script src="app.js"></script>
+</body>
+</html>
